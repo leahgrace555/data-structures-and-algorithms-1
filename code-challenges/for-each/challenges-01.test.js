@@ -33,11 +33,12 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  return word.toUpperCase();
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  const upper = callback(message);
+  return upper;
 };
 
 /* ------------------------------------------------------------------------------------------------
