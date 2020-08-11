@@ -1,4 +1,5 @@
 
+
 # Created by https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
 
 ### Linux ###
@@ -45,6 +46,11 @@ Temporary Items
 .apdisk
 
 ### Node ###
+
+# User defined
+.DS_Store
+*.diff
+
 # Logs
 logs
 *.log
@@ -83,7 +89,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+
 # TypeScript v1 declaration files
+
 typings/
 
 # Optional npm cache directory
@@ -102,6 +110,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+
 .env
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -224,5 +233,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
 # End of https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
+.env
