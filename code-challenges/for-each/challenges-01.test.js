@@ -48,7 +48,7 @@ const addNumbers = (num, arr, times, callback) => {
 
 CHALLENGE 3
 
-Write a function named createList that takes in an array of the current store intentory.
+Write a function named createList that takes in an array of the current store intentory..
 
 The inventory is formatted like this:
 [
