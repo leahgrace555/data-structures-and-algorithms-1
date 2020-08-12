@@ -9,7 +9,11 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 ------------------------------------------------------------------------------------------------ */
 
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach(ArrValue => {
+    newArr.push(Math.pow(ArrValue, 3));
+  });
+  return newArr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,7 +24,9 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
+  let newString ='';
+  const stringConcat = ' The end.';
+  return str.concat(stringConcat)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,7 +43,8 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
+  const element = arr[0];
+  arr.push(element);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +63,7 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
+  obj.yearBorn = year;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +80,10 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.forEach( person => {
+    person.isAuthor = true;
+  });
+}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,10 +100,10 @@ const b = [3, 4];
 append(a, b);
 console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
-
 const append = (arr1, arr2) => {
-  // Solution code here...
-
+  arr2.forEach( value => {
+  arr1.push(value);
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,7 +123,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should append without modifying the oiginal', () => {
     const a = 'This is my story.';
     const b = appendTheEnd(a);
@@ -123,7 +133,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should append by modifying the oiginal', () => {
     const a = ['Yes', 'it', 'is'];
     appendFirstToLast(a);
@@ -132,7 +142,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should add a property to an object', () => {
     const a = { fullName: 'Octavia Butler' };
     addBirthYearProperty(a, 1947);
