@@ -62,9 +62,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // const containNumber = /[A-Z][a-z]+/;
-  const capitals = str.match(/\b[A-Z][a-z]+/);
-    return capitals;
+  const capitals = str.match(/[A-Z][a-zA-Z]*/g);
+    return capitals || [];
   }
 
 /* ------------------------------------------------------------------------------------------------
