@@ -74,10 +74,17 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
+// maps takes an array, and builds a new array based off what we want to put in it
+// potato is the value of i (in a for loop)
 
-const charCode = (arr) => {
-  // Solution code here...
-};
+// const charCode = (arr) => {
+//   let x = arr.map(potato =>{
+//     return potato.charCodeAt();
+//   });
+//   return x;
+// };
+
+const charCode = arr => arr.map(potato => potato.charCodeAt());
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -86,12 +93,21 @@ Write a function that, given an array of numbers as input, uses map to return a 
 
 If any element in the array is not a number, the resulting array should have the string "N/A" in its place.
 
-For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
+For example: evenOdd([1,2,3, 'hi', []]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOdd = (arr) => {
-  // Solution code here...
-};
+const evenOdd = arr => {
+  let x = arr.map(potato =>{
+  if(potato % 2 === 0){
+    return 'even';
+  }else if(typeof potato === 'string'){
+    return 'N/A';
+  }else{
+    return 'odd';
+  }
+});
+return x;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -135,9 +151,7 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = arr => arr.map(potato => potato.ability.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -237,14 +251,14 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return an array containing the keys from an object', () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
@@ -266,7 +280,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing only the ability names', () => {
     expect(extractAbilities(snorlaxAbilities.abilities)).toStrictEqual(['gluttony', 'cute charm', 'immunity']);
     expect(extractAbilities(snorlaxAbilities.abilities).length).toStrictEqual(3);
