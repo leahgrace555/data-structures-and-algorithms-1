@@ -1,15 +1,28 @@
-public class ArrayShift{
-  public static void main(int[] arr, int val){
-    int[]numbers = new int[]{2, 4, 6, 8};
-    int newNumb = 5;
-    for(int i = numbers.length -1; i > 0; i--){
-      if(numbers[i] == 0) continue;
-      numbers[i + 1] = numbers[i];
-      if (numbers[i] <= val){
-        numbers[i] = val;
-        break;
-      }
+public class ArrayShift {
+  public static int[] insertShiftArray (int[] input, int value) {
+    if (input.length == 0){
+      return new int[]{value};
     }
-    System.out.println(Arrays.toString(numbers));
+    int[] output = new int[input.length + 1];
+    int middle = input.length / 2;
+    if (input.length % 2 == 1) {
+      middle++;
+    }
+    int counter = 0;
+    int outputCounter = 0;
+    while (outputCounter < output.length) {
+      if (outputCounter < middle) {
+        output[outputCounter] = input[counter];
+      } else if (outputCounter == middle) {
+        output[outputCounter] = value;
+        counter--;
+      } else {
+        output[outputCounter] = input[counter];
+      }
+      counter++;
+      outputCounter++;
+    }
+    return output;
+//        return new int[]{1,2,3,4,5};
   }
 }
