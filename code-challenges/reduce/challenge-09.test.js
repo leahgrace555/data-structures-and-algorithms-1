@@ -186,8 +186,15 @@ Note: You may not use the array's built-in length property.
 //https://gist.github.com/quangnd/572c6d410cb6512b7f252af0f2eb7cae here is a great guide to help solve this problem, I don't get it, but it passes
 
 const countNumberOfElements = (arr) => {
-  return arr.reduce((a) =>a+1, 0)
+  return arr.reduce((accumulator) => { 
+    return accumulator + 1}, 
+    0)
 }
+// .reduce takes in 3 args(acc, current, index)
+// reduce takes in an accumulator (return arrray), current is what the value of [i] would be in a for loop, index (optional) used if looking for a specific index. 
+// after the comma is what we want to return, is it an array, obj, number, ect
+
+
 // };
 
 /* ------------------------------------------------------------------------------------------------
@@ -252,6 +259,8 @@ const returnNames = (arr) => {
     return acc;
   }, []);
 }
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -318,7 +327,13 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  let x = arr.reduce((acc, current) =>{
+    if(current.children){  // checking if exists or not
+      acc += current.children.length;
+    }
+    return acc;
+  }, 0)
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -421,7 +436,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', () => {
+xdescribe('Testing challenge 1', () => {
   test('It should return an array of object instances with a key of author', () => {
     expect(mapCurrentEvents()[0].author).toStrictEqual("go");
   });
@@ -473,7 +488,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
