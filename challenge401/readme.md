@@ -22,5 +22,5 @@
 
 - Approach/Efficiency: I decided to create a function that would find the middle of the array, then check whether the key was higher or lower. Then, it would set a new middle and check for the key again. Repeat until the key is found, if none existed then display -1.
 
-- [Whiteboard]()
+- [Whiteboard](src/main/resources/whiteboard#2.PNG)
 
