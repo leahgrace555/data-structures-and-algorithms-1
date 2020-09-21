@@ -1,9 +1,8 @@
 package dataStructures;
 
 public class LinkedList {
-    Node head;
-//    LinkedList ll = new LinkedList();
-    String tail = null;
+    public Node head = null;
+    public Node tail = null;
 
     public String insert(String data) { //
         Node node = new Node(data);
@@ -24,7 +23,7 @@ public class LinkedList {
         Node current = this.head;
         boolean result = false;
         while(current.nextNode != null) {
-            if (current.myVal == data) { // we cannot compare a string to a string, look into reference types + .equals
+            if (current.myVal == data) {
                 current = current.nextNode;
                 result = true;
             } else {
@@ -34,14 +33,29 @@ public class LinkedList {
         return result;
     }
 
-//    public String toString(){
-//      String nodeString = "";
-//      String currentNode = this.head;
-//        while(currentNode !== null){
-//            nodeString = nodeString + `{${currentNode.value}} -> `;
-//            currentNode = currentNode.next;
-//       }
-//        nodeString = nodeString + "null";
-//      return nodeString;
+    public String toString(){
+        return toString(this.head);
+
+    }
+    public String toString(Node current){
+        if(current == null){
+            return "null";
+        }
+        return String.format("{%d} -> %s", current.myVal, toString(current.nextNode));
+    }
+//    public int removeFromEnd() throws Exception {
+//        if (this.head == null) {
+//            throw new Exception("There are no things to remove");
+//        } else {
+//            int thingToReturn = this.tail.myVal;
+//            Node twoFromEnd = this.head;
+//            while (twoFromEnd.nextNode.nextNode != null) {
+//                twoFromEnd = twoFromEnd.nextNode;
+//            }
+//            twoFromEnd.nextNode = null;
+//            this.tail = twoFromEnd;
+//
+//            return thingToReturn;
+//        }
 //    }
 }
