@@ -29,19 +29,7 @@ public class LinkedList {
         return test;
     }
 
-    public String toString() {
-        return toString(this.head);
-    }
-
-    public String toString(Node current) {
-        if (current == null) {
-            return "null";
-        } else {
-            return String.format("{%d} -> {%s}", current.value, toString(current.next));
-        }
-    }
-
-    public String append(int value) {
+    public String ll_append(int value) {
         Node node = new Node(value);
         this.tail.next = node;
         return "Node has been added to the tail.";
@@ -89,9 +77,41 @@ public class LinkedList {
         }
     }
 
+    public String toString() {
+        return toString(this.head);
+    }
+
+
+    public String toString(Node current) {
+        if (current == null) {
+            return "null";
+        } else {
+            return String.format("{%d} -> {%s}", current.value, toString(current.next));
+        }
+    }
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/solution/
+    public String kthFromTheEnd(int k) { //throws Exception
+        Node node = head;
+        Node first = node;
+        Node second = node;
+
+        for(int i = 0; i < k + 1; i++){
+//            if(second == null){
+//                throw new Exception("Exception");
+//            }
+            first = first.next;
+        }
+        while(first != null){
+            first = first.next;
+            second = second.next;
+        }
+        return String.format("This should return %d", second.value);
+    }
+
     class Node {
         public int value;
         Node next = null;
+        Node prev;
 
         public Node(int value) {
             this.value = value;
