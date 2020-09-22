@@ -1,16 +1,32 @@
 # java-fundamentals
 
-A repo full of lab work
+## Table of Contents
 
-## Contents
-  - basics directory
-    - Main.java methods
-      - pluralize: makes a word plural based on integer quantity
-      - flipNHeads: simulates coinflips until a given quantity of consecutive heads
-      - clock: logs the current time in console every second along with processing power in megahertz
-  - basiclibrary directory
-    - RollingDice.java methods
-      - roll: takes in an integer and simulates that many 6-sided dice rolls, stores and returns the resulting values in an integer array
-      - containsDuplicates: takes in an integer array and checks to see if it contains duplicate values, returns boolean true if there are duplicates, false if not
-      - calculateAverage: take in an array of integers and returns the average of the values as a double
-      - getLowestAvgArray: takes in an array of integer arrays, calculates each integer array's average value, and returns the integer array with the lowest average value
+## Array Shift
+- Problem Domain: Insert a number into the middle of an array.
+
+- Approach/Efficiency: I created a new array that was based off the initial array.length +1. Then gave new values to the array.
+
+- [Whiteboard](src/main/resources/whiteboard#1.PNG)
+
+
+## Array Reverse
+- Problem Domain: Reverse the order of an array.
+
+- Approach/Efficiency: I modified the original array, replacing the first and last index. Then replacing the 2nd and 4th. 
+
+- Instructed that one was not needed for this day (fist day of class)
+
+## Array Binary Search
+- Problem Domain: Sort an array, then find a key value from that array and display it's index
+
+- Approach/Efficiency: I decided to create a function that would find the middle of the array(binary search), then check whether the key was higher or lower. Then, it would set a new middle and check for the key again. Repeat until the key is found, if none existed then display -1.
+
+- [Whiteboard](src/main/resources/whiteboard#2.PNG)
+
+## Linked-List
+- 
+
+- 
+
+- 
