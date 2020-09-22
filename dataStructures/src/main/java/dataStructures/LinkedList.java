@@ -4,58 +4,97 @@ public class LinkedList {
     public Node head = null;
     public Node tail = null;
 
-    public String insert(String data) { //
-        Node node = new Node(data);
+    public String insert(int value) {
+        Node node = new Node(value);
         if (this.head == null) {
-            node.setNextNode(null);
             this.head = node;
-        }else {
-            Node myHead = this.head;
-            while(myHead.getNextNode() != null){
-                myHead.getNextNode();
-            }
-            myHead.setNextNode(node);
+            this.tail = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
         }
-        return node.myVal;
+        return "Node has been added.";
     }
 
-    public boolean includes(String data) {
+    public boolean includes(int value) {
         Node current = this.head;
-        boolean result = false;
-        while(current.nextNode != null) {
-            if (current.myVal == data) {
-                current = current.nextNode;
-                result = true;
-            } else {
-                result = false;
+        boolean test = false;
+
+        while (current != null) {
+            if (current.value == value) {
+                test = true;
             }
+            current = current.next;
         }
-        return result;
+        return test;
     }
 
-    public String toString(){
+    public String toString() {
         return toString(this.head);
+    }
 
-    }
-    public String toString(Node current){
-        if(current == null){
+    public String toString(Node current) {
+        if (current == null) {
             return "null";
+        } else {
+            return String.format("{%d} -> {%s}", current.value, toString(current.next));
         }
-        return String.format("{%d} -> %s", current.myVal, toString(current.nextNode));
     }
-//    public int removeFromEnd() throws Exception {
-//        if (this.head == null) {
-//            throw new Exception("There are no things to remove");
-//        } else {
-//            int thingToReturn = this.tail.myVal;
-//            Node twoFromEnd = this.head;
-//            while (twoFromEnd.nextNode.nextNode != null) {
-//                twoFromEnd = twoFromEnd.nextNode;
-//            }
-//            twoFromEnd.nextNode = null;
-//            this.tail = twoFromEnd;
-//
-//            return thingToReturn;
-//        }
-//    }
+
+    public String append(int value) {
+        Node node = new Node(value);
+        this.tail.next = node;
+        return "Node has been added to the tail.";
+    }
+
+    public void insertBefore(int value, int befVal) {
+        Node node = new Node(value);
+        Node current = head;
+
+        while (current.next != null) {
+            if (current.next.value == befVal) {
+                Node temp = current.next;
+                current.next = node;
+                node.next = temp;
+            }
+            current = current.next;
+        }
+    }
+
+    public void insertAfter(int value, int aftVal) {
+        Node node = new Node(value);
+        Node current = head;
+
+        while (current != null) {
+            if (current.value == aftVal) {
+                Node temp = current.next;
+                current.next = node;
+                node.next = temp;
+            }
+            current = current.next;
+        }
+    }
+
+    public void deleteNode(int value) {
+        Node current = head;
+        if (current.value == value) {
+            head = current.next;
+        }
+
+        while (current != null) {
+            if (current.next.value == value) {
+                current.next = current.next.next;
+            }
+            current = current.next;
+        }
+    }
+
+    class Node {
+        public int value;
+        Node next = null;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
 }

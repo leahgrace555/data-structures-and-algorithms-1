@@ -24,3 +24,7 @@ LinkedList Methods:
   - insert : Takes an integer and assigns it to be the new head. The new integer is now the head, and the previous head is the nextnode
   - includes : Takes an integer and checks for the value amung the nodes.
   - toString : Returns a string with the linked list. Shows what we did!
+  - append : Appends a new integer to the front / head of our linkedlist.
+  - insertbefore : The integer checks for a value we set, once that value is found, the new value is inserted before it.
+  - insertafter : This was a duplicate of insert before, except we just inserted after.
+  
