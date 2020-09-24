@@ -76,11 +76,49 @@ public class LinkedList {
             current = current.next;
         }
     }
+    // https://leetcode.com/problems/remove-nth-node-from-end-of-list/solution/
+    public String kthFromTheEnd(int k) throws Exception { //throws Exception
+        Node node = head;
+        Node first = node;
+        Node second = node;
+
+        for(int i = 0; i < k + 1; i++){
+            first = first.next;
+        }
+        while(first != null){
+            first = first.next;
+            second = second.next;
+        }
+        if(k < 0) {
+            throw new Exception("Oops, that broke the link!");
+        }
+        return String.format("This should return %d", second.value);
+    }
+    public static LinkedList zipLists(LinkedList one, LinkedList two) {
+        LinkedList ll = new LinkedList();
+        if(one == null){
+            return two;
+        }else if (two == null){
+            return one;
+        }
+        Node current1 = one.head;
+        Node current2 = two.head;
+        Node tempVar = current1.next;
+        Node tempVar2 = current2.next;
+
+        while(tempVar != null& tempVar2 !=null){
+            current1 = current2;
+            current2 = current1.next;
+            current1.next = current2.next;
+            ll.insert(tempVar.value);
+            ll.insert(tempVar2.value);
+        }
+        return ll;
+    }
 
     public String toString() {
         return toString(this.head);
     }
-
 
     public String toString(Node current) {
         if (current == null) {
@@ -88,24 +126,6 @@ public class LinkedList {
         } else {
             return String.format("{%d} -> {%s}", current.value, toString(current.next));
         }
-    }
-// https://leetcode.com/problems/remove-nth-node-from-end-of-list/solution/
-    public String kthFromTheEnd(int k) { //throws Exception
-        Node node = head;
-        Node first = node;
-        Node second = node;
-
-        for(int i = 0; i < k + 1; i++){
-//            if(second == null){
-//                throw new Exception("Exception");
-//            }
-            first = first.next;
-        }
-        while(first != null){
-            first = first.next;
-            second = second.next;
-        }
-        return String.format("This should return %d", second.value);
     }
 
     class Node {
