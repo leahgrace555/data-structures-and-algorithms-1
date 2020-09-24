@@ -57,7 +57,7 @@ public class LinkedListTest {
 //                ll.toString());
     }
     @Test
-    public void testIndexChecker() { //throws Exception
+    public void testIndexChecker()throws Exception { //throws Exception
         LinkedList ll = new LinkedList();
         ll.insert(3);
         ll.insert(2);
@@ -66,14 +66,28 @@ public class LinkedListTest {
         assertEquals("This should return 3", ll.kthFromTheEnd(0));
         assertEquals("This should return 2", ll.kthFromTheEnd(1));
         assertEquals("This should return 1", ll.kthFromTheEnd(2));
-//        assertEquals("That isn't within our list", ll.kthFromTheEnd(8)); // k is longer than length
-//        assertEquals("This should return 1", ll.kthFromTheEnd(3)); // the length + k are the same
+//        assertThrows("Oops that broke it yo", IndexOutOfBoundsException.class, () -> ll.aFunction)
     }
     @Test
-    public void testIndexCheckerIfZero() {
+    public void testIndexCheckerIfZero()throws Exception {
         LinkedList ll = new LinkedList();
         ll.insert(3);
 
         assertEquals("This should return 3", ll.kthFromTheEnd(0)); // only length of 1
+    }
+    @Test
+    public void testZipper(){
+        LinkedList ll = new LinkedList();
+        LinkedList ll2 = new LinkedList();
+        ll.insert(3);
+        ll.insert(2);
+        ll.insert(1);
+        ll2.insert(7);
+        ll2.insert(6);
+        ll2.insert(5);
+
+        ll.zipLists(ll, ll2);
+
+        assertEquals("we should get 1 -> 6 -> 2 and so on", ll.toString());
     }
 }
